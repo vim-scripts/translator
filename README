@@ -1,0 +1,8 @@
+This is a mirror of http://www.vim.org/scripts/script.php?script_id=4518
+
+Just use `:Tran` command. for example:
+     :Tran hello
+
+Execute ':help translator' to see more infomation in help.
+
+The latest dev versions are on github:  https://github.com/FuDesign2008/translator.vim 
