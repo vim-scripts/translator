@@ -130,7 +130,7 @@ endfunction
 
 "@visual mode
 "translate block text
-function! TranslateBlock() abort
+function s:TranslateBlock() abort
   let start_v = col("'<") - 1
   let end_v = col("'>")
   let lines = getline("'<","'>")
@@ -153,8 +153,9 @@ function s:TranslateWordUnderCursor()
 endfunction
 
 
-if !exists(":Translate")
-    command! -nargs=* -complet=custom,s:TranslateComplete Translate call s:Translate('<args>')
-    command! TranslateUnderCursor call s:TranslateWordUnderCursor()
+if !exists(":Tran")
+    command! -nargs=* -complet=custom,s:TranslateComplete Tran call s:Translate('<args>')
+    command! TranCursor call s:TranslateWordUnderCursor()
+    command! TranBlock call s:TranslateBlock()
 endif
 

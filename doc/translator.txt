@@ -1,0 +1,113 @@
+*translator.txt*  A translation plugin that shows translation in vim!
+
+             _                       _       _
+            | |_ _ __ __ _ _ __  ___| | __ _| |_ ___  _ __
+            | __| '__/ _` | '_ \/ __| |/ _` | __/ _ \| '__|
+            | |_| | | (_| | | | \__ \ | (_| | || (_) | |
+             \__|_|  \__,_|_| |_|___/_|\__,_|\__\___/|_|
+
+
+                              Reference Manual
+
+
+
+==============================================================================
+CONTENTS                                                 *Translator-contents*
+
+    1. Usage ................ |TranslatorUsage|
+    2. Configuration ........ |TranslatorConfiguration|
+    3. License .............. |TranslatorLicense|
+    4. About ................ |TranslatorAbout|
+    5. Changelog ............ |TranslatorChangelog|
+    6. Credits .............. |TranslatorCredits|
+
+==============================================================================
+1: Usage                                                     *TranslatorUsage*
+
+The translator allows you to get translation from popular web translation
+engines for words and a block of text and view translation result in vim! You
+do NOT need to open a browser to see translation result.
+
+Just use ':Tran' in command line. For example: >
+        :Tran hello
+        :Tran 给力
+
+You can translate the word under cursor with ':TranCursor' command. For
+example: >
+        :TranCursor
+
+Key mapping for this command in .vimrc is recommended. For example: >
+        nnoremap <leader>tr :TranCursor<CR>
+
+In visual mode, ':TranBlock' will be useful. This command will translate a
+block of text which is selected. You also can use key mapping, for example: >
+        vnoremap <leader>tr :TranBlock<CR>
+
+
+==============================================================================
+2: Configuration                                     *TranslatorConfiguration*
+
+The plugin needs nodejs, and the nodejs should added to $PATH.
+
+Before using the plugin, you should configure 'g:translator_engine' to tell the
+plugin which translation engine you want to use. For example: >
+        let g:translator_engine = 'http://fanyi.youdao.com/openapi.do?keyfrom=FuDesign2008&key=1676087853&type=data&doctype=json&version=1.1&q=<QUERY>'
+        let g:translator_engine = 'baidu'
+
+In a general way, a translation engine needs register to use it's free service.
+You will get a key mating your user name to get JSON data from translation
+engine. The engine's api manual will guide you.
+
+The '<QUERY>' in the configuration will be replaced with the words or a block of
+text which you want to be translated.
+
+The plugin internally has support for these translation engines: youdao, baidu.
+However, we recommend to make personal register for translation engines and
+configure 'g:translator_engine'  with your own user name and key.
+
+If you do not configure 'g:translator_engine', it's default translation engine --
+youdao -- will be used.
+
+==============================================================================
+3: License                                                 *TranslatorLicense*
+
+Like vim, the license of plugin is GPL-compatible and distributed freely. The
+full license text can be found in the documentation.
+
+See http://vimdoc.sourceforge.net/htmldoc/uganda.html#license
+
+
+==============================================================================
+4: About                                                       *TranslatorAbout*
+
+The author of the translator.vim is a coder called FuDesign2008 who loves vim.
+
+The latest stable versions can be found at
+    http://www.vim.org/scripts/script.php?script_id=4518
+
+The latest dev versions are on github
+    https://github.com/FuDesign2008/translator.vim
+
+He can be reached at FuDesign2008@163.com and FuDesignhaha@gmail.com.  He would
+love to hear from you, so feel free to send him suggestions, bugs  and/or
+comments about this plugin.
+
+
+==============================================================================
+5: Changelog                                             *TranslatorChangelog*
+
+Next
+    - add supports for more translation engines, like google, microsoft.
+
+1.0.1 
+    - add document for ':help translator'.
+
+1.0.0 
+    - translate words/text with web translation engine and show translation in
+    vim.
+    - add supports for youdao and baidu translation engines.
+    - ':Tran', ':TranCursor' and ':TranBlock'
+
+==============================================================================
+6: Credits                                                 *TranslatorCredits*
+
